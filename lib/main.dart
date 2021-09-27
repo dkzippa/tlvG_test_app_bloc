@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Test Task',
+      title: 'Flutter Test Task - Bloc With Paging',
       theme: ThemeData.dark(),
       home: BlocProvider(
         create: (context) => MissionsBloc(
