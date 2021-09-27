@@ -27,7 +27,7 @@ class _PageSearchState extends State<PageSearch> {
     _searchInputController.addListener(() {
       if (_searchInputController.text.length > 0 && _searchInputController.text.length <= AppConfig.minTextLength) {
         setState(() {
-          inputError = 'Please type correct mission name, (min $AppConfig.minTextLength symbols)';
+          inputError = 'Please type correct mission name, (min ${AppConfig.minTextLength} symbols)';
         });
       } else {
         setState(() {
@@ -85,7 +85,6 @@ class _PageSearchState extends State<PageSearch> {
                           maxLines: 1,
                           obscureText: false,
                           textAlignVertical: TextAlignVertical.center,
-                          textInputAction: TextInputAction.continueAction,
                           autofocus: false,
                           autocorrect: false,
                           decoration: InputDecoration(
@@ -117,11 +116,13 @@ class _PageSearchState extends State<PageSearch> {
                   ? MissionsList(searchStr: _searchInputController.text)
                   : Center(
                       child: Column(
-                      children: [
-                        Text(inputError ?? '', style: TextStyle(color: Colors.redAccent, fontSize: 14.0)),
-                        AstronautAnimation(),
-                      ],
-                    )),
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(inputError ?? '', textAlign: TextAlign.center, style: TextStyle(color: Colors.redAccent, fontSize: 14.0)),
+                          AstronautAnimation(),
+                        ],
+                      ),
+                    ),
             ],
           ),
         ),
